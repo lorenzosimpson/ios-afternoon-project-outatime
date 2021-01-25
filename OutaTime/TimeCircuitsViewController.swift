@@ -32,7 +32,9 @@ class TimeCircuitsViewController: UIViewController {
     private var timer: Timer?
     
     func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: updateSpeedLabel(timer:))
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1,
+                                     repeats: true,
+                                     block: updateSpeedLabel(timer:))
     }
     
    private func updateSpeedLabel(timer: Timer) {
@@ -45,8 +47,14 @@ class TimeCircuitsViewController: UIViewController {
             lastTimeDeparted.text = presentTime.text
             presentTime.text = destinationTime.text
             currentSpeed = 0
-            let alert = UIAlertController(title: "Time Travel Successful", message: "Your new date is \(presentTime.text ?? "unknown")", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            
+            let alert = UIAlertController(title: "Time Travel Successful",
+                                          message: "Your new date is \(presentTime.text ?? "unknown")",
+                                          preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK",
+                                         style: .default,
+                                         handler: nil)
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }
